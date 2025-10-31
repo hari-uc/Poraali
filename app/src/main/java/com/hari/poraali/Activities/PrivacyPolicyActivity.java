@@ -22,7 +22,6 @@ public class PrivacyPolicyActivity extends AppCompatActivity {
         String url = "https://hari-uc.github.io/privacy-policy/";
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_privacy_policy);
-        getSupportActionBar ().hide ();
 
         web = findViewById (R.id.webview2);
         progressBar = findViewById (R.id.progressBar);

@@ -4,37 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.DevelopersActivity"
-    android:id="@+id/devlayout">
+    android:background="@color/bg_color_2"
+    tools:context=".Activities.DevelopersActivity">
+
+    <ImageView
+        android:id="@+id/imagebackdevelopers"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:src="@drawable/ic_leftarrow"
+        android:tint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/teaamheading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_15sdp"
         android:text="The Team"
-        android:textSize="@dimen/_20ssp"
-        android:gravity="center"
-        android:textStyle="bold"
         android:textColor="@color/white"
-        android:textAllCaps="true"
-        app:layout_constraintRight_toRightOf="@id/devlayout"
-        app:layout_constraintLeft_toLeftOf="@id/devlayout"
-        app:layout_constraintBottom_toTopOf="@id/dev_recycle"
-        app:layout_constraintTop_toTopOf="@id/devlayout"/>
+        android:textSize="@dimen/_20ssp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imagebackdevelopers" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/dev_recycle"
-        android:layout_width="405dp"
-        android:layout_height="667dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/_4sdp"
+        android:paddingEnd="@dimen/_4sdp"
+        android:paddingBottom="@dimen/_8sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
+        app:layout_constraintTop_toBottomOf="@id/teaamheading" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

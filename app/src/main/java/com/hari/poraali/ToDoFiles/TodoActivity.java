@@ -33,10 +33,9 @@ public class TodoActivity extends AppCompatActivity implements DialogCloseListen
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate (savedInstanceState);
-        setContentView (R.layout.activity_todo);
-        getSupportActionBar ().hide ();
-        db = new DatabaseHandler (this);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_todo);
+        db = new DatabaseHandler(this);
         db.openDatabase ();
         tasklist = new ArrayList<> ();
         checkboxState = new boolean[tasklist.size ()];

@@ -19,9 +19,8 @@ public class AboutUs extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate (savedInstanceState);
-        setContentView (R.layout.activity_aboutus);
-        getSupportActionBar ().hide ();
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_aboutus);
 
         Element adsElement = new Element();
         View aboutPage = new AboutPage(this)

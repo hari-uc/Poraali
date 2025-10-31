@@ -21,9 +21,9 @@ public class DevelopersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_developers);
-        getSupportActionBar().hide();
 
-
+        // Back button
+        findViewById(R.id.imagebackdevelopers).setOnClickListener(v -> onBackPressed());
 
         rv = findViewById(R.id.dev_recycle);
         rv.setLayoutManager(new LinearLayoutManager(this));

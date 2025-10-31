@@ -29,7 +29,6 @@ public class LoginActivity extends AppCompatActivity {
         // Modern edge-to-edge display
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
-        getSupportActionBar().hide();
         setContentView(R.layout.activity_login);
 
         userText = findViewById(R.id.usernicknametxt);

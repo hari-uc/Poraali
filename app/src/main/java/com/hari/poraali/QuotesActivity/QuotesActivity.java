@@ -19,11 +19,10 @@ public class QuotesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate (savedInstanceState);
-        setContentView (R.layout.activity_quotes);
-        getSupportActionBar ().hide ();
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_quotes);
 
-        frameLayout = findViewById (R.id.framelayout);
+        frameLayout = findViewById(R.id.framelayout);
         btn1 = findViewById (R.id.englishbtn);
         btn2 = findViewById (R.id.tamilbtn);
         imgback = findViewById(R.id.imagebackquotes);

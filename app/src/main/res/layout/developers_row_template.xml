@@ -1,57 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="10dp"
-    android:elevation="4dp"
-    app:cardUseCompatPadding="true">
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="4dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="0dp">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="25dp">
+        android:padding="12dp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgfire"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@mipmap/ic_launcher"
+            app:civ_border_color="@color/white"
+            app:civ_border_width="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/titlefire"
-            android:text="TITLE"
-            android:textStyle="bold"
-            android:textSize="15sp"
-            android:textColor="@color/white"
-            android:layout_toRightOf="@id/imgfire"
-            android:layout_marginLeft="15dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
             android:ellipsize="end"
-            android:maxLines="3"
-            android:textAlignment="gravity"/>
+            android:maxLines="2"
+            android:text="Developer Name"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imgfire"
+            app:layout_constraintTop_toTopOf="@id/imgfire"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/roleinfo"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/titlefire"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginLeft="15dp"
-            android:layout_toRightOf="@id/imgfire"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
             android:ellipsize="end"
-            android:maxLines="3"
-            android:text="role"
-            android:textAlignment="gravity"
-            android:textColor="@color/white"
-            android:textSize="10sp"
-            android:textStyle="bold" />
+            android:maxLines="2"
+            android:text="Role / Position"
+            android:textColor="#B3FFFFFF"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imgfire"
+            app:layout_constraintTop_toBottomOf="@id/titlefire"
+            tools:ignore="HardcodedText" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-    </RelativeLayout>
-
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>
