@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "863065852345",
+    "firebase_url": "https://testingrealtimedb-41880-default-rtdb.firebaseio.com",
+    "project_id": "testingrealtimedb-41880",
+    "storage_bucket": "testingrealtimedb-41880.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:863065852345:android:36926dc027283ca0054e68",
+        "android_client_info": {
+          "package_name": "com.hari.poraali"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSLaz98i1FV0Xa0gfqsOvL92VBrGCkr9Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

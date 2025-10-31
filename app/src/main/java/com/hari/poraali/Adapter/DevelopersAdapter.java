@@ -10,8 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-//import com.example.myapplication.R;
+import com.squareup.picasso.Picasso;
 import com.hari.poraali.Model.DeveloperModel;
 import com.hari.poraali.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -37,14 +36,11 @@ public class DevelopersAdapter extends FirebaseRecyclerAdapter<DeveloperModel,De
         holder.titletxt.setText(model.getName());
         holder.roletxt.setText(model.getRole());
 
-        Glide.with(holder.img.getContext())
+        Picasso.get()
                 .load(model.getImg())
                 .placeholder(com.firebase.ui.database.R.drawable.common_google_signin_btn_icon_dark)
                 .error(com.firebase.ui.database.R.drawable.common_google_signin_btn_icon_dark_normal)
                 .into(holder.img);
-
-
-
     }
 
     @NonNull

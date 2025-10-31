@@ -12,7 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
 import com.hari.poraali.Activities.WebviewActivity;
 import com.hari.poraali.Model.NewsModel;
 import com.hari.poraali.R;
@@ -39,27 +39,18 @@ public class WebviewAdapter extends FirebaseRecyclerAdapter<NewsModel,WebviewAda
     protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull NewsModel model) {
         holder.titletxt.setText(model.getTitle());
 
-        Glide.with(holder.img.getContext())
+        Picasso.get()
                 .load(model.getImg())
                 .placeholder(com.firebase.ui.database.R.drawable.common_google_signin_btn_icon_dark)
                 .error(com.firebase.ui.database.R.drawable.common_google_signin_btn_icon_dark_normal)
                 .into(holder.img);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String clickurl = model.getUrl();
-                Intent intent = new Intent(view.getContext(), WebviewActivity.class);
-                intent.putExtra("blogURL",clickurl);
-                holder.itemView.getContext().startActivity(intent);
-//                Toast.makeText(view.getContext(), ""+clickurl, Toast.LENGTH_SHORT).show();
-
-
-            }
+        holder.itemView.setOnClickListener(view -> {
+            String clickurl = model.getUrl();
+            Intent intent = new Intent(view.getContext(), WebviewActivity.class);
+            intent.putExtra("blogURL", clickurl);
+            holder.itemView.getContext().startActivity(intent);
         });
-
-
-
     }
 
     @NonNull
