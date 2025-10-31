@@ -25,7 +25,6 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_settings);
-        getSupportActionBar ().hide ();
 
         switchCompat = findViewById (R.id.switchdark);
         textView = findViewById (R.id.settingsusername);

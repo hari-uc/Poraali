@@ -18,16 +18,14 @@ public class EntrepreneurNewsActivity extends AppCompatActivity {
 
     RecyclerView rv;
     WebviewAdapter mainAdapter;
-    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entrepreneur_news);
-//        requestWindowFeature (Window.FEATURE_NO_TITLE);
-//        this.getWindow ().setFlags (WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportActionBar ().hide ();
 
+        // Back button
+        findViewById(R.id.imagebacknews).setOnClickListener(v -> onBackPressed());
 
         rv = findViewById(R.id.recyclev);
         rv.setLayoutManager(new LinearLayoutManager(this));

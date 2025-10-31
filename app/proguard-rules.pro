@@ -5,17 +5,51 @@
 # For more details, see
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+# Preserve line numbers for debugging
+-keepattributes SourceFile,LineNumberTable
+-renamesourcefileattribute SourceFile
 
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
+# Room Database
+-keep class * extends androidx.room.RoomDatabase
+-keep @androidx.room.Entity class *
+-dontwarn androidx.room.paging.**
 
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
+# Firebase
+-keepattributes Signature
+-keepattributes *Annotation*
+-keepattributes EnclosingMethod
+-keepattributes InnerClasses
+-keep class com.google.firebase.** { *; }
+-keep class com.firebase.** { *; }
+-dontwarn com.google.firebase.**
+
+# Picasso
+-dontwarn com.squareup.okhttp.**
+-keep class com.squareup.picasso.** { *; }
+
+# Volley
+-keep class com.android.volley.** { *; }
+-keep class org.apache.commons.logging.**
+
+# Model classes
+-keep class com.hari.poraali.Model.** { *; }
+-keep class com.hari.poraali.Entity.** { *; }
+
+# ViewBinding
+-keep class * implements androidx.viewbinding.ViewBinding {
+    public static *** bind(android.view.View);
+    public static *** inflate(android.view.LayoutInflater);
+}
+
+# Preserve all model classes for Firebase and JSON serialization
+-keepclassmembers class * {
+    @com.google.gson.annotations.SerializedName <fields>;
+}
+
+# Lottie
+-dontwarn com.airbnb.lottie.**
+-keep class com.airbnb.lottie.** { *; }
+
+# Conscrypt
+-dontwarn org.conscrypt.Conscrypt
+-dontwarn org.conscrypt.OpenSSLProvider

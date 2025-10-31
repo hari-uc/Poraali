@@ -1,6 +1,5 @@
 package com.hari.poraali.QuotesActivity;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,93 +9,115 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.hari.poraali.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
 public class EnglishQuote extends Fragment {
 
+    private static final String BASE_URL = "https://api.realinspire.live/v1/quotes/random";
 
-    TextView quoteText,authorText;
-    String BASE_URL = "https://api.quotable.io/random?maxLength=120?tags=inspirational";
-
-
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate (savedInstanceState);
-
-
-
-    }
+    private TextView quoteText;
+    private TextView authorText;
+    private ProgressBar progressBar;
+    private ImageView refreshButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
-        return inflater.inflate (R.layout.fragment_english_quote, container, false);
-
+        return inflater.inflate(R.layout.fragment_english_quote, container, false);
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @NonNull Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
-    public void onViewCreated(@NonNull View view,@NonNull Bundle savedInstanceState){
-        super.onViewCreated (view,savedInstanceState);
-        ProgressDialog mProgressDialog = new ProgressDialog(getContext ());
+        quoteText = view.findViewById(R.id.jsontxtenglish);
+        authorText = view.findViewById(R.id.authorname);
+        progressBar = view.findViewById(R.id.progressBar);
+        refreshButton = view.findViewById(R.id.refreshButton);
 
-        mProgressDialog.setIndeterminate (true);
-        mProgressDialog.setMessage("Loading...");
-        mProgressDialog.show();
+        loadQuote();
 
-        quoteText = getView ().findViewById (R.id.jsontxtenglish);
-        authorText = getView().findViewById(R.id.authorname);
-        quoteText.setText ("");
+        // Refresh button click
+        if (refreshButton != null) {
+            refreshButton.setOnClickListener(v -> loadQuote());
+        }
+    }
+
+    private void loadQuote() {
+        if (progressBar != null) {
+            progressBar.setVisibility(View.VISIBLE);
+        }
+        if (refreshButton != null) {
+            refreshButton.setEnabled(false);
+            refreshButton.setAlpha(0.5f);
+        }
+        quoteText.setText("");
         authorText.setText("");
 
-        RequestQueue requestQueue;
+        RequestQueue requestQueue = Volley.newRequestQueue(requireContext());
 
-        requestQueue = Volley.newRequestQueue(getContext());
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
+                Request.Method.GET,
+                BASE_URL,
+                null,
+                response -> {
+                    if (progressBar != null) {
+                        progressBar.setVisibility(View.GONE);
+                    }
+                    if (refreshButton != null) {
+                        refreshButton.setEnabled(true);
+                        refreshButton.setAlpha(1.0f);
+                    }
+                    try {
+                        if (response.length() > 0) {
+                            JSONObject quoteObject = response.getJSONObject(0);
+                            String content = quoteObject.getString("content");
+                            String author = quoteObject.getString("author");
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
-                BASE_URL, null, new com.android.volley.Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    mProgressDialog.dismiss();
-                    Log.d("myapp", "the response is " + response.getString("content"));
-//                    Toast.makeText(getApplicationContext(), ""+response.getString("content"), Toast.LENGTH_SHORT).show();
-                    String content = (String) response.getString("content");
-                    String author = (String) response.getString("author");
+                            quoteText.setText("\"" + content + "\"");
+                            authorText.setText("— " + author);
 
-                    quoteText.setText(content);
-                    authorText.setText("-"+author);
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                            Log.d("EnglishQuote", "Quote loaded: " + content);
+                        }
+                    } catch (JSONException e) {
+                        Log.e("EnglishQuote", "JSON parsing error", e);
+                        showError();
+                    }
+                },
+                error -> {
+                    if (progressBar != null) {
+                        progressBar.setVisibility(View.GONE);
+                    }
+                    if (refreshButton != null) {
+                        refreshButton.setEnabled(true);
+                        refreshButton.setAlpha(1.0f);
+                    }
+                    Log.e("EnglishQuote", "Network error", error);
+                    showError();
                 }
+        );
 
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d("myapp","Something went wrong");
-            }
-        });
-        requestQueue.add(jsonObjectRequest);
-
-
-
+        requestQueue.add(jsonArrayRequest);
     }
 
-
+    private void showError() {
+        quoteText.setText("Unable to load quote at the moment");
+        authorText.setText("");
+        if (getContext() != null) {
+            Toast.makeText(getContext(), "Please check your internet connection", Toast.LENGTH_SHORT).show();
+        }
+    }
 }

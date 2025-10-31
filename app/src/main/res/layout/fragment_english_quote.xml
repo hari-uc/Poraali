@@ -10,44 +10,99 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="24dp">
 
+        <!-- Quote Mark Top -->
         <TextView
-            android:id="@+id/jsontxtenglish"
+            android:id="@+id/quoteMarkTop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center_horizontal"
-            android:text="quotes"
-            android:autoSizeMinTextSize="@dimen/_20ssp"
-            android:autoSizeMaxTextSize="@dimen/_30ssp"
+            android:text=""
+            android:textColor="#33FFFFFF"
+            android:textSize="80sp"
+            android:fontFamily="serif"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            android:textColor="@color/white"
-            android:textStyle="bold"
+        <!-- Quote Content -->
+        <ScrollView
+            android:id="@+id/quoteScrollView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@+id/authorname"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quoteMarkTop"
+            app:layout_constraintVertical_bias="0.0">
+
+            <TextView
+                android:id="@+id/jsontxtenglish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:fontFamily="serif"
+                android:gravity="center"
+                android:lineSpacingExtra="8dp"
+                android:text="Loading..."
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:letterSpacing="0.02"
+                tools:ignore="HardcodedText" />
+
+        </ScrollView>
+
+        <!-- Author -->
+        <TextView
+            android:id="@+id/authorname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:letterSpacing="0.05"
+            android:text="— Author"
+            android:textColor="#CCFFFFFF"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/refreshButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <!-- Refresh Button -->
+        <ImageView
+            android:id="@+id/refreshButton"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginBottom="32dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="Refresh quote"
+            android:focusable="true"
+            android:padding="12dp"
+            android:src="@drawable/ic_refresh"
+            android:tint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="UseAppTint" />
+
+        <!-- Progress Bar -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/white"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/authorname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_10ssp"
-            android:gravity="end"
-            android:text="author"
-            android:textColor="@color/white"
-            android:layout_marginLeft="@dimen/_25ssp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-          app:layout_constraintTop_toBottomOf="@id/jsontxtenglish"
-            app:layout_constraintVertical_bias="0.0" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </FrameLayout>

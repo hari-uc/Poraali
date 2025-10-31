@@ -57,13 +57,10 @@ public class NotesActivity extends AppCompatActivity implements NotesListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate (savedInstanceState);
-        setContentView (R.layout.activity_notes);
-//        requestWindowFeature (Window.FEATURE_NO_TITLE);
-//        this.getWindow ().setFlags (WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportActionBar ().hide ();
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_notes);
 
-        ImageView ImageAddNoteMain = findViewById (R.id.imageaddnotemain);
+        ImageView ImageAddNoteMain = findViewById(R.id.imageaddnotemain);
         back_btn = findViewById(R.id.imagebacknotes);
 
         ImageAddNoteMain.setOnClickListener (new View.OnClickListener () {
