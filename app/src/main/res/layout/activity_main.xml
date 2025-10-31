@@ -2,10 +2,10 @@
 
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:layoutDirection="rtl"
     tools:openDrawer="end">
 
@@ -234,14 +234,26 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:layoutDirection="rtl"
         android:fitsSystemWindows="true"
+        android:background="@color/bg_color_2"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/my_navigation_items"
-        android:visibility="visible">
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:itemIconSize="24dp"
+        app:itemHorizontalPadding="16dp"
+        app:itemVerticalPadding="14dp"
+        app:itemShapeFillColor="@android:color/transparent"
+        app:itemShapeInsetStart="8dp"
+        app:itemShapeInsetEnd="8dp"
+        app:itemShapeInsetTop="2dp"
+        app:itemShapeInsetBottom="2dp"
+        app:itemRippleColor="#1AFFFFFF"
+        style="@style/Widget.Material3.NavigationView">
 
     </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>

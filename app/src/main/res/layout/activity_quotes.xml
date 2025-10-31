@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QuotesActivity.QuotesActivity"
+    android:background="@color/bg_color_2"
     android:orientation="vertical"
-    android:background="@color/bg_color_2">
+    tools:context=".QuotesActivity.QuotesActivity">
+
+    <!-- Back Button -->
     <ImageView
         android:id="@+id/imagebackquotes"
         android:layout_width="@dimen/_20sdp"
@@ -14,82 +16,82 @@
         android:layout_marginStart="@dimen/_6sdp"
         android:layout_marginTop="@dimen/_20sdp"
         android:layout_marginEnd="@dimen/_12sdp"
+        android:contentDescription="Back"
         android:src="@drawable/ic_leftarrow"
-        android:tint="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:tint="@color/white" />
 
-
-
+    <!-- Language Selector -->
     <LinearLayout
         android:id="@+id/linearablove"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:background="@color/bg_color_2"
-        tools:context=".QuotesActivity.QuotesActivity">
-
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="16dp">
 
         <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="5"
             android:orientation="horizontal">
 
             <RadioButton
-
                 android:id="@+id/englishbtn"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="16dp"
-                android:layout_weight="0.5"
+                android:layout_height="48dp"
+                android:layout_marginEnd="12dp"
                 android:background="@drawable/radio_selector"
                 android:button="@android:color/transparent"
-                android:elevation="10dp"
                 android:gravity="center"
-                android:tag="1"
-                android:text="ENGLISH"
-                android:textColor="@drawable/text_color" />
-
+                android:minWidth="120dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:text="English"
+                android:textAllCaps="false"
+                android:textColor="@drawable/text_color"
+                android:textSize="15sp" />
 
             <RadioButton
-
                 android:id="@+id/tamilbtn"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="16dp"
-                android:layout_weight="0.5"
+                android:layout_height="48dp"
                 android:background="@drawable/radio_selector"
                 android:button="@android:color/transparent"
-                android:elevation="10dp"
                 android:gravity="center"
-                android:tag="1"
-                android:text="TAMIL"
-                android:textColor="@drawable/text_color" />
+                android:minWidth="120dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:text="Tamil"
+                android:textAllCaps="false"
+                android:textColor="@drawable/text_color"
+                android:textSize="15sp" />
 
         </RadioGroup>
 
-
     </LinearLayout>
 
+    <!-- Quote Display Area -->
     <FrameLayout
         android:id="@+id/framelayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/linearablove">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Please Select Any Language ☝"
             android:layout_gravity="center"
-            android:textColor="@color/white"/>
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:alpha="0.6"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:letterSpacing="0.05"
+            android:lineSpacingExtra="4dp"
+            android:text="Select a language to view quotes"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
 
     </FrameLayout>
-
-
-
 
 </LinearLayout>
