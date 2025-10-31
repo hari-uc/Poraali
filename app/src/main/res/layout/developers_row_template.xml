@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    android:elevation="4dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="25dp">
+
+        <ImageView
+            android:id="@+id/imgfire"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/titlefire"
+            android:text="TITLE"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:layout_toRightOf="@id/imgfire"
+            android:layout_marginLeft="15dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textAlignment="gravity"/>
+
+        <TextView
+            android:id="@+id/roleinfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titlefire"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/imgfire"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:text="role"
+            android:textAlignment="gravity"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
