@@ -49,3 +49,7 @@
 # Lottie
 -dontwarn com.airbnb.lottie.**
 -keep class com.airbnb.lottie.** { *; }
+
+# Conscrypt
+-dontwarn org.conscrypt.Conscrypt
+-dontwarn org.conscrypt.OpenSSLProvider

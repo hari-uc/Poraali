@@ -19,7 +19,7 @@ public class PrivacyPolicyActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        String url = "https://hari-uc.github.io/privacy-policy/";
+        String url = "https://cheerful-beijinho-39c1ae.netlify.app/privacy-policy.html";
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_privacy_policy);
 
